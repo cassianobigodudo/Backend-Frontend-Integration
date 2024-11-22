@@ -1,0 +1,78 @@
+html{
+
+  height: 100%;
+
+}
+
+body{
+
+  height: 100%;
+  margin: 0;
+  background-color: brown;
+  font-family: Helvetica;
+
+}
+
+#root {
+
+  height: 100%;
+  margin: 0;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cardRegister{
+
+  height: 80%;
+  width: 30%;
+  border-radius: 20px;
+  background-color: #E4E4E4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.lblTitle{
+
+  font-size: 40px;
+  margin: 15px 0px 15px 0px;
+
+}
+
+.lblLabel{
+
+  font-size: 20px;
+  margin: 5px 0px 5px 0px;
+
+}
+
+.inptInput{
+
+  height: 7%;
+  width: 70%;
+  font-size: 15px;
+  border: solid 0px;
+  border-radius: 20px;
+  margin: 5px 0px 5px 0px;
+  padding-left: 15px;
+
+}
+
+.btnRegister{
+
+  height: 10%;
+  width: 75%;
+  font-size: 25px;
+  background-color: #303030;
+  color: white;
+  border: solid 0px;
+  border-radius: 20px;
+  margin: 20px 0px 20px 0px;
+  cursor: pointer;
+
+}
