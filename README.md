@@ -1,8 +1,8 @@
 # Backend-Frontend-Integration
 Back-end integration with Front-end, using Vite, React, Node, Axios, Express and PostgreSQL.<br>
 
--> Dependencies install (folder backend)
-$\color{purple}{npm install}$
+# Dependencies install (folder backend)
+$\textsf{\color{#f48522}{npm install}}$
 
 -> Back-End / Server run (folder backend)
 npm start
