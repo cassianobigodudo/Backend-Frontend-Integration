@@ -7,31 +7,66 @@ import './App.css'
 function App() {
 
   // Declaração para controle de estados do dado digitado no input
-  const[username, setUsername] = useState({username:''})
+  const[registrar, setRegistrar] = useState({username:'', idade:''})
+  const[users, setUsers] = useState([])
 
   // Função chamada no clique do botão
   const handleClick = async (e) => {
     e.preventDefault()
-      try {
+      try { 
         // Utilizando o axios para enviar requisição de post do front para o back
-        const response = await axios.post('http://localhost:3000/Users', username)
+        const response = await axios.post('http://localhost:3000/Users', registrar)
           if (response.status === 201) {
-            setUsername(response.data);
+            setRegistrar(response.data);
             alert('Usuário cadastrado no banco de dados! :D')
           }
+          
       } catch (error) {
           console.error('Erro ao cadastrar usuário! :(', error)
       }
-  }
 
+      try { 
+        // Utilizando o axios para enviar requisição de post do front para o back
+        const response = await axios.get('http://localhost:3000/Users')
+          if (response.status === 200) {
+            setUsers(response.data)
+          }
+      } catch (error) {
+          console.error('Erro ao buscar usuário! :(', error)
+      }
+  }
   // Retorno da função App, com os elementos visuais do front
   return (
     <>
       <div className='cardRegister'>
         <label className='lblTitle'>User Register</label>
         <label className='lblLabel'>Username</label>
-        <input className='inptInput' value={username.username} onChange={(e) => setUsername({ ...username, username: e.target.value })} />
+        <input className='inptInput' value={registrar.username} onChange={(e) => setRegistrar({ ...registrar, username: e.target.value })} />
+        <label className='lblLabel'>Idade</label>
+        <input className='inptInput' value={registrar.idade} onChange={(e) => setRegistrar({ ...registrar, idade: e.target.value })} />
         <button className='btnRegister' onClick={handleClick}>REGISTER</button>
+      </div>
+
+      <div className='cardRegister'>
+        <label className='lblTitle'>Mostrar Tabela</label>
+        <table className='userTable'>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Idade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr key={index}>
+                <td>{user.username}</td>
+                <td>{user.idade}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+
       </div>
     </>
   )
